@@ -125,7 +125,7 @@ class _MusicAppState extends State<MusicApp> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
                         image: DecorationImage(
-                          image: AssetImage("assets/hotel1.jpg"),
+                          image: AssetImage("assets/images/hotel1.jpg"),
                         )),
                   ),
                 ),
