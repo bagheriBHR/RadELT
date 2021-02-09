@@ -5,6 +5,7 @@ import 'package:RadELT/screens/home/components/product-list.dart';
 import 'package:RadELT/screens/home/components/title.dart';
 import 'package:RadELT/screens/home/components/top-services.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../constants.dart';
 
@@ -32,7 +33,6 @@ class _BodyState extends State<Body> {
             SizedBox(height: 10,),
             CustomTitle(title:'داغ ترین مقالات',type:'article'),
             ArticleList(),
-
             // SizedBox(height: 10,),
             // CustomTitle(title:'آخرین پادکست ها',type:'padcast'),
             // PadCastList(),

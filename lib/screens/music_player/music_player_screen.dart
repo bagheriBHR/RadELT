@@ -1,6 +1,7 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:RadELT/constants.dart';
 
 class MusicApp extends StatefulWidget {
   @override
@@ -26,8 +27,8 @@ class _MusicAppState extends State<MusicApp> {
     return Container(
       width: 300.0,
       child: Slider.adaptive(
-          activeColor: Colors.blue[800],
-          inactiveColor: Colors.grey[350],
+          activeColor: Colors.white,
+          inactiveColor: Colors.white.withOpacity(0.3),
           value: position.inSeconds.toDouble(),
           max: musicLength.inSeconds.toDouble(),
           onChanged: (value) {
@@ -75,11 +76,11 @@ class _MusicAppState extends State<MusicApp> {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
               colors: [
-                Colors.blue[800],
-                Colors.blue[200],
+                kPrimaryColor,
+                kPrimaryColor.withOpacity(0.8),
               ]),
         ),
         child: Padding(
@@ -93,23 +94,23 @@ class _MusicAppState extends State<MusicApp> {
               children: [
                 //Let's add some text title
                 Padding(
-                  padding: const EdgeInsets.only(left: 12.0),
+                  padding: const EdgeInsets.only(right: 12.0),
                   child: Text(
-                    "Music Beats",
+                    "عنوان پادکست",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 38.0,
+                      fontSize: 32.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 12.0),
+                  padding: EdgeInsets.only(right: 12.0),
                   child: Text(
-                    "Listen to your favorite Music",
+                    "توضیحات پادکست",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 24.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -126,6 +127,7 @@ class _MusicAppState extends State<MusicApp> {
                         borderRadius: BorderRadius.circular(30.0),
                         image: DecorationImage(
                           image: AssetImage("assets/images/hotel1.jpg"),
+                          fit: BoxFit.cover
                         )),
                   ),
                 ),
@@ -135,10 +137,10 @@ class _MusicAppState extends State<MusicApp> {
                 ),
                 Center(
                   child: Text(
-                    "Stargazer",
+                    "نام و نام خانوداگی",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 32.0,
+                      fontSize: 22.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -149,7 +151,7 @@ class _MusicAppState extends State<MusicApp> {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30.0),
                         topRight: Radius.circular(30.0),
@@ -172,6 +174,7 @@ class _MusicAppState extends State<MusicApp> {
                                 "${position.inMinutes}:${position.inSeconds.remainder(60)}",
                                 style: TextStyle(
                                   fontSize: 18.0,
+                                  color:Colors.white
                                 ),
                               ),
                               slider(),
@@ -179,6 +182,7 @@ class _MusicAppState extends State<MusicApp> {
                                 "${musicLength.inMinutes}:${musicLength.inSeconds.remainder(60)}",
                                 style: TextStyle(
                                   fontSize: 18.0,
+                                  color:Colors.white
                                 ),
                               ),
                             ],
@@ -188,17 +192,10 @@ class _MusicAppState extends State<MusicApp> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+
                             IconButton(
-                              iconSize: 45.0,
-                              color: Colors.blue,
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.skip_previous,
-                              ),
-                            ),
-                            IconButton(
-                              iconSize: 62.0,
-                              color: Colors.blue[800],
+                              iconSize: 52.0,
+                              color: Colors.white,
                               onPressed: () {
                                 //here we will add the functionality of the play button
                                 if (!playing) {
@@ -211,7 +208,7 @@ class _MusicAppState extends State<MusicApp> {
                                 } else {
                                   _player.pause();
                                   setState(() {
-                                    playBtn = Icons.play_arrow;
+                                    playBtn = Icons.play_arrow_rounded;
                                     playing = false;
                                   });
                                 }
@@ -220,14 +217,7 @@ class _MusicAppState extends State<MusicApp> {
                                 playBtn,
                               ),
                             ),
-                            IconButton(
-                              iconSize: 45.0,
-                              color: Colors.blue,
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.skip_next,
-                              ),
-                            ),
+
                           ],
                         )
                       ],

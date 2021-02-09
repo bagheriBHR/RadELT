@@ -102,12 +102,15 @@ class _ImagePickerState extends State<CustomImagePicker> {
                   :null
           ),
         ),
-        CircleAvatar(
-          radius: 13,
-          backgroundColor: Colors.white,
-          child: IconButton(
-            icon: Icon(Icons.add,color: Colors.grey,size: 12,),
-            onPressed: (){_showDialogBox(context);},
+        Positioned(
+          right:10,
+          child: CircleAvatar(
+            radius: 15,
+            backgroundColor: Colors.white,
+            child: IconButton(
+              icon: Icon(Icons.add,color: Colors.grey,size: 14,),
+              onPressed: (){_showDialogBox(context);},
+            ),
           ),
         )
       ],
